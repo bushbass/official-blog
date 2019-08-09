@@ -7,7 +7,7 @@ export default function index() {
     <div>
       <Layout>
         <Head title="Home" />
-        Home page content
+        Checking auto deploy from git push
       </Layout>
     </div>
   )
