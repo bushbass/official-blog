@@ -6,7 +6,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
   // this takes our relative path and turns it into a full path from HD
   const res = await graphql(`
     query {
-      allContentfulBlogPost {
+      allWordpressPost {
         edges {
           node {
             slug
@@ -16,7 +16,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  res.data.allContentfulBlogPost.edges.forEach(edge => {
+  res.data.allWordpressPost.edges.forEach(edge => {
     createPage({
       component: blogTemplate,
       path: `/blog/${edge.node.slug}`,

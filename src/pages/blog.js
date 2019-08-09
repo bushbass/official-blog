@@ -7,12 +7,12 @@ import Head from "../components/head"
 function Blog() {
   const data = useStaticQuery(graphql`
     query {
-      allContentfulBlogPost(sort: { fields: publishedDate, order: DESC }) {
+      allWordpressPost(sort: { fields: date, order: DESC }) {
         edges {
           node {
             title
             slug
-            publishedDate(formatString: "MMMM Do, YYYY")
+            date(formatString: "MMMM Do, YYYY")
           }
         }
       }
@@ -24,11 +24,11 @@ function Blog() {
       <Head title="Blog" />
       <div>Blog page</div>
       <ol className={blogStyles.posts}>
-        {data.allContentfulBlogPost.edges.map(blog => (
+        {data.allWordpressPost.edges.map(blog => (
           <li className={blogStyles.post} key={blog.node.title}>
             <Link to={`/blog/${blog.node.slug}`}>
               <h2>{blog.node.title}</h2>
-              <p>{blog.node.publishedDate}</p>
+              <p>{blog.node.date}</p>
             </Link>
           </li>
         ))}
