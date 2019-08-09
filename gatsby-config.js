@@ -16,7 +16,6 @@ module.exports = {
     {
       resolve: "gatsby-source-wordpress",
       options: {
-    
         baseUrl: "alexnielsen.com",
         protocol: "http",
         hostingWPCOM: false,
@@ -34,7 +33,7 @@ module.exports = {
 
           jwt_user: process.env.JWT_USER,
           jwt_pass: process.env.JWT_PASSWORD,
-          jwt_base_path: "/jwt-auth/v1/token", 
+          jwt_base_path: "/jwt-auth/v1/token",
         },
         cookies: {},
         verboseOutput: true,
@@ -74,13 +73,7 @@ module.exports = {
       },
     },
     "gatsby-plugin-react-helmet",
-    {
-      resolve: "gatsby-source-contentful",
-      options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-      },
-    },
+
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-filesystem`,
