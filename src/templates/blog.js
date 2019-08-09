@@ -15,12 +15,15 @@ export const query = graphql`
 `
 
 function Blog(props) {
+  function createMarkup() {
+    return { __html: props.data.wordpressPost.content }
+  }
   return (
     <Layout>
       <Head title={props.data.wordpressPost.title} />
       <h1>{props.data.wordpressPost.title}</h1>
       <p>{props.data.wordpressPost.date}</p>
-      {props.data.wordpressPost.content}
+      <div dangerouslySetInnerHTML={createMarkup(props)} />
     </Layout>
   )
 }
